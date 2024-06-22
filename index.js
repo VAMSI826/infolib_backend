@@ -16,11 +16,12 @@ import authroute from "./route/auth.route.js";
 const app = express();
 
 app.use(
-  cors({
-    origin: ["https://infolib.vercel.app/"],
-    methods: ["GET", "POST", "DELETE"],
-    credentials: true,
-  })
+  cors()
+  //{
+  //   origin: ["https://infolib.vercel.app/"],
+  //   methods: ["GET", "POST", "DELETE"],
+  //   credentials: true,
+  // }
 );
 app.use(express.json());
 app.use(bodyParser.json());
@@ -31,10 +32,7 @@ const PORT = process.env.PORT || 4000;
 const URI = process.env.MongoDBURI;
 
 try {
-  mongoose.connect(URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  mongoose.connect(URI);
   console.log("Connected to MongoDB");
 } catch (error) {
   console.log("Error:", error);
