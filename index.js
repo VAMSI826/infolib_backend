@@ -52,6 +52,9 @@ app.use("/api/auth", authroute);
 //   res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
 // });
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 app.listen(PORT, () => {
   console.log(` sever is listening on port ${PORT}`);
 });
