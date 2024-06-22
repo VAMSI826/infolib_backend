@@ -12,6 +12,12 @@ import slotrouter from "./route/slot.route.js";
 import borrowedrouter from "./route/borrowed.route.js";
 import notifrouter from "./route/notification.route.js";
 import authroute from "./route/auth.route.js";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+// Define __dirname in ES module scope
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 
