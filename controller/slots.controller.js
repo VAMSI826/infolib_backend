@@ -23,11 +23,7 @@ export const addSlot = async (req, res) => {
         barcode: barcode,
         title: book.title,
         borroweddate: date.toLocaleDateString(),
-        timeofbooking: date.toLocaleTimeString("en-GB", {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        }),
+        timeofbooking: date.toLocaleTimeString("en-IN"),
       });
       book.copies = book.copies - 1;
       console.log(book.copies);
