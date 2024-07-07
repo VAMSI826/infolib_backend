@@ -14,7 +14,7 @@ import authroute from "./route/auth.route.js";
 
 const app = express();
 
-const allowedOrigins = ["https://infolib-frontend-d2jy.vercel.app/"];
+const allowedOrigins = ["https://infolib-frontend-d2jy.vercel.app"];
 
 app.use(
   cors({
