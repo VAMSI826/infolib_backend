@@ -26,8 +26,8 @@ export const borrowedbook = async (req, res) => {
         uucms: Slot.uucms,
         barcode: barcode,
         title: Slot.title,
-        borroweddate: date.toLocaleDateString(),
-        returndate: returnDate.toLocaleDateString(),
+        borroweddate: date.toLocaleDateString("en-GB"),
+        returndate: returnDate.toLocaleDateString("en-GB"),
         fine: 0,
       });
 
@@ -69,7 +69,7 @@ export const getBorrowed = async (req, res) => {
         barcode: book.barcode,
         title: book.title,
         borroweddate: book.borroweddate,
-        returndate: dueDate.toLocaleDateString(),
+        returndate: dueDate.toLocaleDateString("en-GB"),
         fine: fine,
       };
 
@@ -125,10 +125,10 @@ export const renewBook = async (req, res) => {
     if (!borrow) {
       return res.status(404).json({ message: "Book not found" });
     }
-    borrow.borroweddate = date.toLocaleDateString();
+    borrow.borroweddate = date.toLocaleDateString("en-GB");
     const returnDate = new Date(date);
     returnDate.setDate(date.getDate() + 14);
-    borrow.returndate = returnDate.toLocaleDateString();
+    borrow.returndate = returnDate.toLocaleDateString("en-GB");
     borrow.fine = 0;
     await borrow.save();
     res.status(200).json({
