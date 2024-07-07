@@ -4,14 +4,15 @@
   "description": "mern project",
   "main": "index.js",
   "type": "module",
-  "engines": {
-    "node": "20.x"
-  },
-  "scripts": {
+    "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
     "build": "npm  i"
   },
+  "engines": {
+    "node": "20.x"
+  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VAMSI826/Project-infolib.git"

@@ -14,10 +14,19 @@ import authroute from "./route/auth.route.js";
 
 const app = express();
 
+const allowedOrigins = ["https://infolib-frontend-d2jy.vercel.app/"];
+
 app.use(
   cors({
-    origin: "https://infolib.vercel.app",
-    optionsSuccessStatus: 200,
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg =
+          "The CORS policy for this site does not allow access from the specified Origin.";
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
   })
 );
 app.use(express.json());
